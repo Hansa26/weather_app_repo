@@ -28,7 +28,7 @@ def consume_weather_data():
 
     json_data = response.json()
 
-    return "Data: {json_data}"
+    return f"Data: {json_data}"
 
 
 
