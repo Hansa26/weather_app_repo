@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request
 import requests
 
 
@@ -14,9 +14,9 @@ def homepage():
 def consume_weather_data():
     url = "https://api.openweathermap.org/data/2.5/weather"
     
-    city = request.json["city"]
-    units = request.json["units"]
-    appid = request.json["appid"]
+    city = request.form.get("city")
+    units = request.form.get("units")
+    appid = request.form.get("appid")
     
     parameter = {
         'q': city,
@@ -28,7 +28,7 @@ def consume_weather_data():
 
     json_data = response.json()
 
-    return jsonify(f"Data: {json_data}")
+    return "Data: {json_data}"
 
 
 
