@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, jsonify
 import requests
-import json
 
 
 app = Flask(__name__)
@@ -29,7 +28,7 @@ def consume_weather_data():
 
     json_data = response.json()
 
-    return jsonify(f"Data: {json.dumps(json_data)}")
+    return jsonify(f"Data: {json_data}")
 
 
 
